@@ -46,10 +46,8 @@ def render_hero():
 
 def render_sidebar():
     with st.sidebar:
-        if ROBOT_IMAGE_PATH.exists():
-            st.image(str(ROBOT_IMAGE_PATH), use_container_width=True)
-
         st.markdown(
+      
             """
             <div class="sidebar-card">
                 <div class="sidebar-title">Document Processing</div>
