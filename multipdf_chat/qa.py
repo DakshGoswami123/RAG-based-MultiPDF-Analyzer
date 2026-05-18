@@ -28,7 +28,7 @@ from multipdf_chat.text_utils import (
 def get_conversational_model():
     return ChatGoogleGenerativeAI(
         model=DEFAULT_CHAT_MODEL,
-        temperature=0.3,
+        temperature=0.2,
     )
 
 
