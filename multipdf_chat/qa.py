@@ -44,7 +44,7 @@ def format_docs_for_prompt(docs) -> str:
 
 
 def answer_with_gemini(question: str, docs) -> str:
-   prompt = f"""
+    prompt = f"""
     Answer the question only using the provided document context.
     Be detailed, accurate, and cite relevant page-aware context where possible.
     If the answer is not available in the provided context, clearly say "insufficient information in the uploaded documents."
