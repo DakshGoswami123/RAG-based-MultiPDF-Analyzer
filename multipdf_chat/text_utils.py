@@ -1,3 +1,4 @@
+# Extract and split PDF text into chunks for semantic retrieval
 from __future__ import annotations
 
 import re
