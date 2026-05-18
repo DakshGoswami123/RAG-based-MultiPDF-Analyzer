@@ -1,235 +1,166 @@
-<<<<<<< HEAD
-# RAG-based-MultiPDF-Analyzer
-A modular RAG system for multi-document question answering that converts PDFs into embeddings, stores them in a FAISS index, and retrieves relevant context using adaptive query-based retrieval and hybrid re-ranking. Includes a fallback keyword search for robustness.
+# Multi-PDF Research Assistant
 
-# 📄 Multi-PDF Research Assistant (RAG-Based QA System)
+This is a RAG-based (Retrieval-Augmented Generation) project I worked on to understand how large language models can answer questions using external document data instead of relying only on pretrained knowledge.
 
-An AI-powered **Multi-PDF Question Answering System** built using a **Retrieval-Augmented Generation (RAG)** pipeline.
-This project demonstrates how large language models can be combined with document retrieval to answer questions based on uploaded PDFs.
+The main idea is simple: upload one or more PDF documents, ask questions in natural language, and get answers based on the uploaded content.
 
----
-
-## 🚀 Features
-
-* 📂 Upload and process **multiple PDF documents**
-* 🔍 Semantic search using embeddings
-* ⚡ Fast similarity retrieval using FAISS
-* 💬 Interactive chat interface
-* 🔁 Fallback keyword-based search (when API is unavailable)
+I built this as a learning project to explore document retrieval, embeddings, vector databases, and integrating LLMs into a practical application.
 
 ---
 
-## 🧠 System Overview
+## Features
 
-The system follows a **RAG (Retrieval-Augmented Generation)** approach:
-
-### 🔹 Phase 1: Knowledge Base Creation
-
-1. Upload PDFs
-2. Extract text from documents
-3. Split text into smaller chunks
-4. Convert chunks into embeddings
-5. Store embeddings in a FAISS index
+- Upload and process multiple PDF documents
+- Semantic search using embeddings
+- Fast document retrieval using FAISS
+- Question answering using Google Gemini
+- Local fallback keyword-based retrieval if API/vector retrieval fails
+- Simple interactive Streamlit interface
 
 ---
 
-### 🔹 Phase 2: Question Answering
+## How It Works
 
-1. User inputs a query
-2. Query is converted into an embedding
-3. FAISS retrieves relevant chunks
-4. Retrieved context is passed to the language model
-5. Model generates an answer based on the context
+This project follows a Retrieval-Augmented Generation (RAG) workflow.
 
----
+### 1. Document Processing
 
-## 🛠️ Tech Stack
+When PDFs are uploaded:
 
-* **Frontend:** Streamlit
-* **LLM & Embeddings:** Google Gemini
-* **Vector Search:** FAISS
-* **Language:** Python
+- Text is extracted from the uploaded files
+- The extracted content is split into smaller chunks
+- Each chunk is converted into embeddings
+- Embeddings are stored in a FAISS vector index for retrieval
 
----
+### 2. Question Answering
 
-## 📁 Project Structure
+When a user asks a question:
 
-```
-Multi-PDFs_ChatApp_AI-Agent-main/
-│
-├── app.py
-├── multipdf_chat/
-│   ├── config.py
-│   ├── knowledge_base.py
-│   ├── qa.py
-│   ├── text_utils.py
-│   ├── ui.py
-│   └── styles.py
-│
-├── assets/
-├── tests/
-├── requirements.txt
-└── LICENSE
-```
+- The query is processed
+- Relevant document chunks are retrieved
+- Retrieved context is passed to the language model
+- The model generates an answer based on the available context
+
+If the primary retrieval pipeline fails, the app falls back to local keyword-based retrieval.
 
 ---
 
-## ⚙️ Installation
+## Tech Stack
+
+**Frontend**
+- Streamlit
+
+**Backend**
+- Python
+
+**AI / LLM**
+- Google Gemini
+- LangChain
+
+**Retrieval**
+- FAISS
+- Semantic embeddings
+
+---
+
+## Project Structure
 
 ```bash
-git clone <your-repo-url>
-cd Multi-PDFs_ChatApp_AI-Agent-main
+multipdf_chat/
+│
+├── app.py                # Main Streamlit application
+├── config.py             # Central configuration
+├── knowledge_base.py     # PDF processing and vector index creation
+├── qa.py                 # Retrieval and question answering logic
+├── text_utils.py         # Helper functions
+├── ui.py                 # UI rendering
+├── styles.py             # Custom styling
+```
+
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone <your-repository-url>
+cd Multi_PDFs_AI-main
+```
+
+Install dependencies:
+
+```bash
 pip install -r requirements.txt
 ```
 
 ---
 
-## 🔐 Environment Setup
+## Environment Setup
 
-Create a `.env` file:
+Create a `.env` file in the project directory:
 
-```
-GOOGLE_API_KEY=your-api-key-here
-```
-
----
-
-## ▶️ Run the Application
-=======
-# RAG-based-MultiPDF-Analyzer
-A modular RAG system for multi-document question answering that converts PDFs into embeddings, stores them in a FAISS index, and retrieves relevant context using adaptive query-based retrieval and hybrid re-ranking. Includes a fallback keyword search for robustness.
-# 📄 Multi-PDF Research Assistant (RAG-Based QA System)
-
-An AI-powered **Multi-PDF Question Answering System** built using a **Retrieval-Augmented Generation (RAG)** pipeline.
-This project demonstrates how large language models can be combined with document retrieval to answer questions based on uploaded PDFs.
-
----
-
-## 🚀 Features
-
-* 📂 Upload and process **multiple PDF documents**
-* 🔍 Semantic search using embeddings
-* ⚡ Fast similarity retrieval using FAISS
-* 💬 Interactive chat interface
-* 🔁 Fallback keyword-based search (when API is unavailable)
-
----
-
-## 🧠 System Overview
-
-The system follows a **RAG (Retrieval-Augmented Generation)** approach:
-
-### 🔹 Phase 1: Knowledge Base Creation
-
-1. Upload PDFs
-2. Extract text from documents
-3. Split text into smaller chunks
-4. Convert chunks into embeddings
-5. Store embeddings in a FAISS index
-
----
-
-### 🔹 Phase 2: Question Answering
-
-1. User inputs a query
-2. Query is converted into an embedding
-3. FAISS retrieves relevant chunks
-4. Retrieved context is passed to the language model
-5. Model generates an answer based on the context
-
----
-
-## 🛠️ Tech Stack
-
-* **Frontend:** Streamlit
-* **LLM & Embeddings:** Google Gemini
-* **Vector Search:** FAISS
-* **Language:** Python
-
----
-
-## 📁 Project Structure
-
-```
-Multi-PDFs_ChatApp_AI-Agent-main/
-│
-├── app.py
-├── multipdf_chat/
-│   ├── config.py
-│   ├── knowledge_base.py
-│   ├── qa.py
-│   ├── text_utils.py
-│   ├── ui.py
-│   └── styles.py
-│
-├── assets/
-├── tests/
-├── requirements.txt
-└── LICENSE
+```env
+GOOGLE_API_KEY=your_api_key_here
 ```
 
----
-
-## ⚙️ Installation
-
-```bash
-git clone <your-repo-url>
-cd Multi-PDFs_ChatApp_AI-Agent-main
-pip install -r requirements.txt
-```
+You can generate a Gemini API key from Google AI Studio.
 
 ---
 
-## 🔐 Environment Setup
+## Running the Application
 
-Create a `.env` file:
-
-```
-GOOGLE_API_KEY=your-api-key-here
-```
-
----
-
-## ▶️ Run the Application
->>>>>>> b95c21e8f4507b6c63441b9fa2272f41f59bb6da
+If running from inside the `multipdf_chat` folder:
 
 ```bash
 streamlit run app.py
 ```
 
-<<<<<<< HEAD
+If running from the project root:
+
 ```bash
-streamlit run app.py
+streamlit run multipdf_chat/app.py
 ```
 
-Then open: `http://localhost:8501`
+---
 
-## 🎯 Learning Objectives
+## What I Learned
 
-This project was developed to understand:
-* Retrieval-Augmented Generation (RAG)
-* Embeddings and semantic search
-* Vector databases (FAISS)
-* Integration of LLMs with external data
+Working on this project helped me understand:
 
-## Acknowledgment
+- how Retrieval-Augmented Generation works
+- document chunking and preprocessing
+- embeddings and semantic similarity search
+- vector databases like FAISS
+- grounding LLM responses using retrieved context
+- handling fallback logic for better reliability
 
-This project is based on existing open-source RAG implementations and was developed for learning and experimentation purposes.
+---
 
-## ⚠️ Limitations
+## Current Limitations
 
-* Depends on embedding and model quality
-* Large PDFs may increase processing time
-* Keyword fallback is less accurate than semantic search
+Some current limitations:
 
-## 🔮 Future Improvements
+- response quality depends on document quality and retrieval relevance
+- large PDFs may increase processing time
+- keyword fallback is less accurate than vector similarity search
+- this is a prototype/learning implementation, not production deployment
 
-* Better retrieval strategies
-* Improved ranking of results
-* Enhanced UI and performance
-* More advanced query understanding
+---
 
-## 📜 License
+## Future Improvements
 
-This project is licensed under the MIT License.
->>>>>>> b95c21e8f4507b6c63441b9fa2272f41f59bb6da
+Things I would improve next:
+
+- source citation highlighting in responses
+- better reranking for retrieval quality
+- persistent chat history
+- authentication
+- deployment support
+- performance optimization for larger document sets
+
+---
+
+## Note
+
+This project was built as a learning-focused implementation using open-source tools and frameworks, with modifications and experimentation to better understand RAG system design.
