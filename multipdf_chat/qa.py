@@ -3,19 +3,19 @@ from __future__ import annotations
 import streamlit as st
 from langchain_google_genai import ChatGoogleGenerativeAI
 
-from multipdf_chat.config import (
+from config import (
     DEFAULT_CHAT_MODEL,
     LOCAL_RETRIEVAL_LIMIT,
     MAX_LOCAL_ANSWER_CHARS,
 )
-from multipdf_chat.knowledge_base import (
+from knowledge_base import (
     explain_runtime_error,
     get_knowledge_signature,
     has_vector_index,
     load_manifest,
     load_vector_store,
 )
-from multipdf_chat.text_utils import (
+from text_utils import (
     extract_requested_page_numbers,
     finalize_answer,
     response_content_to_text,

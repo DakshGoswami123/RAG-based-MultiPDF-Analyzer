@@ -4,10 +4,10 @@ import html
 
 import streamlit as st
 
-from multipdf_chat.knowledge_base import get_knowledge_signature
-from multipdf_chat.qa import ask_question
-from multipdf_chat.styles import inject_styles
-from multipdf_chat.ui import render_hero, render_latest_result, render_sidebar
+from knowledge_base import get_knowledge_signature
+from qa import ask_question
+from styles import inject_styles
+from ui import render_hero, render_latest_result, render_sidebar
 
 
 def main():
@@ -105,6 +105,20 @@ def main():
             unsafe_allow_html=True,
         )
 
+        with right_col:
+         st.markdown(
+            """
+            <div class="info-card">
+                <div class="section-title">What This Workspace Does</div>
+                <p class="section-copy">
+                    The app extracts text from multiple PDFs, stores embeddings in a FAISS
+                    index, and answers questions by grounding the response in retrieved page-aware context.
+                </p>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
         st.markdown(
             """
             <div class="info-card" style="margin-top: 1rem;">
@@ -118,3 +132,7 @@ def main():
             """,
             unsafe_allow_html=True,
         )
+
+
+if __name__ == "__main__":
+    main()

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from multipdf_chat.text_utils import (
+from text_utils import (
     extract_requested_page_numbers,
     normalize_text,
     response_content_to_text,

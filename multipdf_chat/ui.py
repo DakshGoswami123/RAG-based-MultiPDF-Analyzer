@@ -4,8 +4,8 @@ import html
 
 import streamlit as st
 
-from multipdf_chat.config import ROBOT_IMAGE_PATH
-from multipdf_chat.knowledge_base import (
+from config import ROBOT_IMAGE_PATH
+from knowledge_base import (
     build_knowledge_base,
     extract_pdf_pages,
     get_knowledge_signature,

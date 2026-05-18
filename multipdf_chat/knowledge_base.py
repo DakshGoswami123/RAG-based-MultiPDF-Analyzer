@@ -10,13 +10,13 @@ from langchain_community.vectorstores import FAISS
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-from multipdf_chat.config import (
+from config import (
     DEFAULT_EMBEDDING_MODEL,
     INDEX_DIR,
     INDEX_FILES,
     MANIFEST_PATH,
 )
-from multipdf_chat.text_utils import normalize_text
+from text_utils import normalize_text
 
 
 def get_google_api_key() -> str:

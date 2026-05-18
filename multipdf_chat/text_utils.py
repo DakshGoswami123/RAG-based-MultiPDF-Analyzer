@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import re
 
-from multipdf_chat.config import STOPWORDS
+from config import STOPWORDS
 
 
 def normalize_text(text: str) -> str:
