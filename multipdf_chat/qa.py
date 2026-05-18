@@ -145,7 +145,7 @@ def get_answer_for_question(signature, question: str) -> str:
     if has_vector_index():
         try:
             vector_store = load_vector_store(signature)
-            docs = vector_store.similarity_search(question)
+            docs = vector_store.docs = vector_store.similarity_search(question, k=4)(question)
             if docs:
                 try:
                     return answer_with_gemini(question, docs)
